@@ -41,7 +41,7 @@ namespace SystemTimeAnalyzer.Test
     }";
             var expected = new DiagnosticResult
             {
-                Id = SystemTimeAnalyzerAnalyzer.DiagnosticId,
+                Id = SystemTimeDiagnosticAnalyzer.DiagnosticId,
                 Message = String.Format("Type name '{0}' contains lowercase letters", "TypeName"),
                 Severity = DiagnosticSeverity.Warning,
                 Locations =
@@ -71,12 +71,12 @@ namespace SystemTimeAnalyzer.Test
 
         protected override CodeFixProvider GetCSharpCodeFixProvider()
         {
-            return new SystemTimeAnalyzerCodeFixProvider();
+            return new SystemTimeCodeFixProvider();
         }
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new SystemTimeAnalyzerAnalyzer();
+            return new SystemTimeDiagnosticAnalyzer();
         }
     }
 }
