@@ -49,7 +49,15 @@ namespace SystemTimeAnalyzer
             {
                 return;
             }
-            
+
+            if (memberAccessExpression
+                .Ancestors(ascendOutOfTrivia: false)
+                .OfType<ClassDeclarationSyntax>()
+                .First()?.Identifier.Text == "SystemTime")
+            {
+                return;
+            }
+
             var diagnostic = Diagnostic.Create(
                 Rule, 
                 memberAccessExpression.GetLocation());

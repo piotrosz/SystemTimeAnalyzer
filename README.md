@@ -8,6 +8,5 @@ The idea of SystemTime is described here:
 http://ayende.com/blog/3408/dealing-with-time-in-tests
 
 TODO:
-- Add unit tests.
-- Disable analysis and squiggle inside SystemTime class.
+- Add unit tests
 - Add analysis for DateTime.Today
