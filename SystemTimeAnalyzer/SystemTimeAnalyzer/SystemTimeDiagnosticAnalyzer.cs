@@ -13,9 +13,11 @@ namespace SystemTimeAnalyzer
         public const string DiagnosticId = "SystemTimeAnalyzer";
 
         internal static readonly LocalizableString Title = "Use SystemTime.Now()";
-        internal static readonly LocalizableString MessageFormat = "Use SystemTime.Now() instead of DateTime.Now";
-        internal static readonly LocalizableString Description = "Do not use DateTime.Now use SystemTime.Now()";
+        internal static readonly LocalizableString MessageFormat = "Use SystemTime instead of DateTime";
+        internal static readonly LocalizableString Description = "Do not use DateTime, use SystemTime";
         internal const string Category = "Usage";
+
+        private static readonly string[] Members = {"Now", "Today"};
 
         internal static DiagnosticDescriptor Rule = new DiagnosticDescriptor(
             DiagnosticId, 
@@ -41,8 +43,8 @@ namespace SystemTimeAnalyzer
 
             var memberAccessExpression = (MemberAccessExpressionSyntax)context.Node;
 
-            if (memberAccessExpression?.Name.ToString() != "Now" ||
-                memberAccessExpression.Expression.ToString() != "DateTime")
+            if (memberAccessExpression?.Expression.ToString() != "DateTime" ||
+                !Members.Contains(memberAccessExpression.Name.ToString()))
             {
                 return;
             }

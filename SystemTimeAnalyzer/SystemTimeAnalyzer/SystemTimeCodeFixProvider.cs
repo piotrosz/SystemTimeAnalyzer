@@ -43,7 +43,8 @@ namespace SystemTimeAnalyzer
                 .First();
 
             var newRoot = root.ReplaceNode(memberAccessExpressionSyntax,
-                SyntaxFactory.ParseExpression("SystemTime.Now()")
+                SyntaxFactory.ParseExpression(
+                    memberAccessExpressionSyntax.Name.ToString() == "Now" ? "SystemTime.Now()" : "SystemTime.Now().Date")
                 .WithLeadingTrivia(memberAccessExpressionSyntax.GetLeadingTrivia())
                 .WithTrailingTrivia(memberAccessExpressionSyntax.GetTrailingTrivia()));
 

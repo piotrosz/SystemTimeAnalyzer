@@ -9,4 +9,3 @@ http://ayende.com/blog/3408/dealing-with-time-in-tests
 
 TODO:
 - Add unit tests
-- Add analysis for DateTime.Today
