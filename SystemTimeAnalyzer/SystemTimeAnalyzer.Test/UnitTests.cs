@@ -1,53 +1,46 @@
-﻿using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CodeFixes;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using TestHelper;
 using SystemTimeAnalyzer;
+using xUnit;
 
 namespace SystemTimeAnalyzer.Test
 {
-    [TestClass]
     public class UnitTest : CodeFixVerifier
     {
-
-        //No diagnostics expected to show up
-        [TestMethod]
-        public void TestMethod1()
+        [Fact]
+        public void WhenCodeEmptyThenNoDiagnosticsIsShown()
         {
             var test = @"";
 
             VerifyCSharpDiagnostic(test);
         }
-
-        //Diagnostic and CodeFix both triggered and checked for
-        [TestMethod]
-        public void TestMethod2()
+        
+        [Fact]
+        public void WhenDateTimeNowUsedThenBothDiagnosticsAndCodeFixTriggered()
         {
             var test = @"
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
     using System.Diagnostics;
 
     namespace ConsoleApplication1
     {
         class TypeName
         {   
+            var date = DateTime.Now;
         }
     }";
             var expected = new DiagnosticResult
             {
                 Id = SystemTimeDiagnosticAnalyzer.DiagnosticId,
-                Message = String.Format("Type name '{0}' contains lowercase letters", "TypeName"),
+                Message = "Use SystemTime instead of DateTime",
                 Severity = DiagnosticSeverity.Warning,
-                Locations =
-                    new[] {
-                            new DiagnosticResultLocation("Test0.cs", 11, 15)
-                        }
+                Locations = new[] 
+                    {
+                        new DiagnosticResultLocation("Test0.cs", 11, 23)
+                    }
             };
 
             VerifyCSharpDiagnostic(test, expected);
@@ -57,13 +50,13 @@ namespace SystemTimeAnalyzer.Test
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
     using System.Diagnostics;
 
     namespace ConsoleApplication1
     {
-        class TYPENAME
+        class TypeName
         {   
+            var date = SystemTime.Now();
         }
     }";
             VerifyCSharpFix(test, fixtest);
