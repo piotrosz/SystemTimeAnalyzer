@@ -5,7 +5,7 @@ using xUnit;
 
 namespace SystemTimeAnalyzer.Test
 {
-    public class UnitTest : CodeFixVerifier
+    public class SystemAnalyzerTests : CodeFixVerifier
     {
         [Fact]
         public void WhenCodeEmptyThenNoDiagnosticsIsShown()
