@@ -3,14 +3,14 @@
   <metadata>
     <id>SystemTimeAnalyzer</id>
     <version>1.0.0.0</version>
-    <title>SystemTime Analyzer & Code Fix</title>
+    <title>SystemTime Analyzer and Code Fix</title>
     <authors>Piotr Ludwiczuk</authors>
     <owners>SystemTimeAnalyzer</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/piotrosz/SystemTimeAnalyzer</projectUrl>
     <iconUrl></iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Replace DateTime.Now and DateTime.Today by SystemTime</description>
+    <description>Replace DateTime.Now and DateTime.Today with SystemTime</description>
     <releaseNotes>Initial release.</releaseNotes>
     <copyright>Piotr Ludwiczuk</copyright>
     <tags>Roslyn, SystemTimeAnalyzer, analyzers, SystemTime, DateTime, usage</tags>
