@@ -8,12 +8,12 @@
     <owners>SystemTimeAnalyzer</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/piotrosz/SystemTimeAnalyzer</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <iconUrl></iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Replace DateTime.Now and DateTime.Today by SystemTime</description>
     <releaseNotes>Initial release.</releaseNotes>
     <copyright>Piotr Ludwiczuk</copyright>
-    <tags>SystemTimeAnalyzer, analyzers, SystemTime, DateTime, usage</tags>
+    <tags>Roslyn, SystemTimeAnalyzer, analyzers, SystemTime, DateTime, usage</tags>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System" targetFramework="" />
     </frameworkAssemblies>
