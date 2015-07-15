@@ -1,25 +1,24 @@
 ﻿<?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>SystemTimeAnalyzer</id>
+    <id>SystemTimeAnalyzerAndFix</id>
     <version>1.0.0.0</version>
     <title>SystemTime Analyzer and Code Fix</title>
     <authors>Piotr Ludwiczuk</authors>
     <owners>SystemTimeAnalyzer</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/piotrosz/SystemTimeAnalyzer</projectUrl>
-    <iconUrl></iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Replace DateTime.Now and DateTime.Today with SystemTime</description>
-    <releaseNotes>Initial release.</releaseNotes>
-    <copyright>Piotr Ludwiczuk</copyright>
-    <tags>Roslyn, SystemTimeAnalyzer, analyzers, SystemTime, DateTime, usage</tags>
+    <description>Replace DateTime.Now and DateTime.Today with a call to unit testable SystemTime</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <tags>Roslyn, SystemTimeAnalyzer, analyzers, SystemTime, DateTime</tags>
     <frameworkAssemblies>
-      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System" targetFramework="4.5" />
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="*.dll" target="tools\analyzers\" exclude="**\Microsoft.CodeAnalysis.*;**\System.Collections.Immutable.*;**\System.Reflection.Metadata.*" />
+    <file src="*.dll" target="tools\analyzers\C#" exclude="**\Microsoft.CodeAnalysis.*;**\System.Collections.Immutable.*;**\System.Reflection.Metadata.*" />
     <file src="tools\*.ps1" target="tools\" />
+    <file src="Content\SystemTime.cs.pp" target="Content"/>
   </files>
 </package>

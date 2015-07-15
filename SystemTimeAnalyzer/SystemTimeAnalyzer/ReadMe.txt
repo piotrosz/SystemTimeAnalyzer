@@ -24,6 +24,8 @@ To try out the NuGet package:
  5. Select the NuGet feed you created on the left.
  6. Choose your analyzer from the list and click Install.
 
+ Install-Package SystemTimeAnalyzerAndFix -Source C:\path
+
 If you want to automatically deploy the .nupkg file to the local feed folder
 when you build this project, follow these steps:
  1. Right-click on this project in Solution Explorer and choose Properties.

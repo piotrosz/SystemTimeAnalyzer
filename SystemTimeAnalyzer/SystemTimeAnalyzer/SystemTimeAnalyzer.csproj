@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="Content\SystemTime.cs.pp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Compile Include="SystemTimeCodeFixProvider.cs" />
     <Compile Include="SystemTimeDiagnosticAnalyzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
